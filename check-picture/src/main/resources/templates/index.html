@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>高温图片查看</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" type="text/css"/>
+</head>
+
+<body>
+<div class="container" style="" id="app-2">
+    <div style="margin-bottom:45px;margin-top:40px;">
+        <p style="font-size:30px;color:orange;">高温图片查看</p>
+    </div>
+    <div class="row top-line">
+        <span class="font-color-choose">请选择日期:</span>
+        <select class="form-control select-class"
+                name="public-choice"
+                v-model="couponSelected"
+                @change="getCouponSelected">
+            <option>--选择日期--</option>
+            <option :value="item" v-for="item,index in tablesList">{{item}}</option>
+        </select>
+
+        <button type="button" id="highButton" class="btn btn-warning export-excel" @click="getHighTempData"
+                title="请勿重复点击，耐心等待一下">高温数据导出
+        </button>
+        <br> <br>
+        <h2 class="tips-message" v-if="arrayData.length==0">{{message}}</h2>
+        <div class="col-xs-4 left" v-for="(item,index) in arrayData"
+             v-if="index>=(pageCurrent-1)*pagesize&&index<pageCurrent*pagesize"
+             style="margin-bottom: 140px">
+            <img :src="item.imagePath" width="120px" height="140px" border=0/> <br> <br>
+            <span class="font-color">体温:{{item.temperature}}</span> <br>
+            <span class="font-color">时间:{{dateFormat(item.inputTime)}}</span>
+        </div>
+    </div>
+    <nav class="nav-bottom">
+        <div class="pager" id="pager">
+            <template v-if="arrayData.length>0 && arrayData.url!=''"
+                      v-for="item in Math.ceil(arrayData.length/pagesize)">
+                        <span v-if="item==1" class="btn btn-default" v-on:click="showPage(1)">
+                            首页
+                        </span>
+                <span v-if="item==1" class="btn btn-default" v-on:click="showPage(pageCurrent-1)">
+                            上一页
+                        </span>
+                <span v-if="item==1" class="btn btn-default" v-on:click="showPage(item)">
+                            {{item}}
+                        </span>
+                <span v-if="item==1&&item<showPagesStart-1&&item!=1" class="btn btn-default disabled">
+                            ...
+                        </span>
+                <span v-if="item>1&&item<=pageCount-1&&item>=showPagesStart&&item<=showPageEnd&&item<=pageCount"
+                      class="btn btn-default" v-on:click="showPage(item)">
+                            {{item}}
+                        </span>
+                <span v-if="item==pageCount&&item>showPageEnd+1&&item!=1" class="btn btn-default disabled">
+                            ...
+                        </span>
+                <span v-if="item==pageCount && item!=1" class="btn btn-default" v-on:click="showPage(item)">
+                            {{item}}
+                        </span>
+                <span v-if="item==pageCount" class="btn btn-default" v-on:click="showPage(pageCurrent+1)">
+                            下一页
+                        </span>
+                <span v-if="item==pageCount" class="btn btn-default" v-on:click="showPage(pageCount)">
+                            尾页
+                        </span>
+            </template>
+        </div>
+        </ul>
+    </nav>
+</div>
+</body>
+<style>
+    body {
+        background-image: url(../static/image/007.PNG);
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .select-class{
+        width:300px;
+        margin-left:40%;
+    }
+    .export-excel {
+        margin-left: 2%;
+        position: relative;
+        left: 75%;
+
+    }
+    .top-line {
+        display: block;
+        height: 490px;
+    }
+    .nav-bottom {
+        display: block;
+        height: 100px;
+        position: fixed;
+        left: 335px;
+        top: 700px;
+        margin-left: 423px;
+        margin-top: 54px;
+    }
+    .tips-message {
+        color: white;
+        font-size: 29px;
+        margin-left: 28%;
+        margin-top: 10%;
+    }
+    .font-color-choose {
+        color: white;
+        position: absolute;
+        left: 30%;
+        top: 10px;
+    }
+    .font-color {
+        color: white;
+    }
+    .container > .row {
+        position: relative;
+    }
+    img {
+        /*position: absolute;*/
+    }
+    .left {
+        float: left;
+        position: relative;
+    }
+
+
+
+
+</style>
+<script type="text/javascript" src="../static/js/jquery-3.5.1.min.js"></script>
+<script src="../static/js/bootstrap.js"></script>
+<script type="text/javascript" src="../static/js/vue.js"></script>
+<script>
+    var app2 = new Vue({
+        el: '#app-2',
+        data: {
+            //分页数据
+            arrayData: [],
+            tablesList: [],
+            couponSelected: '--选择日期--',
+            message: '暂无高温数据，选择新日期看看',
+            tipMessage: '',
+            //总项目数
+            totalCount: 200,
+            //分页数
+            pageCount: 3,
+            //当前页面
+            pageCurrent: 1,
+            //分页大小
+            pagesize: 6,
+            //显示分页按钮数
+            showPages: 6,
+            //开始显示的分页按钮
+            showPagesStart: 1,
+            //结束显示的分页按钮
+            showPageEnd: 100
+        },
+        created() {
+            this.showTables()
+        },
+        methods: {
+            getHighTempData(){
+                document.getElementById("highButton").disabled=true;  //不能点击
+                $.ajax("/export", {
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(result) {
+                        console.log("export_result:"+result);
+                        alert("高温数据已导出，查看桌面HighDate.xlsx");
+                        document.getElementById("highButton").disabled=false;
+                    },
+                    error: function(result){
+                        console.log("export_result:"+result);
+                        alert("数据导出失败...请重试");
+                        document.getElementById("highButton").disabled=false;
+                    }
+                 });
+            },
+            showTables() {
+                $.ajax("/tables", {
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {},
+                    success: function (result) {
+                        app2.tablesList = result;
+                    }
+                })
+            },
+            getCouponSelected() {
+                $.ajax("/pictures", {
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        'tableName': app2.couponSelected
+                    },
+                    success: function (result) {
+                        app2.arrayData = result
+                        app2.pageCount = Math.ceil(app2.arrayData.length / app2.pagesize)
+                        app2.showPage(1, true);
+                    }
+                })
+            },
+            //时间格式化函数，此处仅针对yyyy-MM-dd hh:mm:ss 的格式进行格式化
+            dateFormat(time) {
+                var date = new Date((time-28800000));  //时间戳减8小时
+                var year = date.getFullYear();
+                /* 在日期格式中，月份是从0开始的，因此要加0
+                * 使用三元表达式在小于10的前面加0，以达到格式统一 如 09:11:05
+                * */
+                var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+                var day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+                var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+                var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+                var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+                // 拼接
+                return year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
+            },
+            //分页方法
+            showPage: function (pageIndex, forceRefresh) {
+                if (pageIndex > 0) {
+                    if (pageIndex > this.pageCount) {
+                        pageIndex = this.pageCount;
+                    }
+                    this.totalCount = app2.arrayData.length;
+                    //判断数据是否需要更新
+                    var currentPageCount = Math.ceil(this.totalCount / this.pagesize);
+                    if (currentPageCount != this.pageCount) {
+                        pageIndex = 1;
+                        this.pageCount = currentPageCount;
+                    }else if (this.pageCurrent == pageIndex && currentPageCount == this.pageCount && typeof (forceRefresh) == "undefined") {
+                        console.log("not refresh");
+                        return;
+                    }
+                    //处理分页点中样式
+                    var buttons = $("#pager").find("span");
+                    for (var i = 0; i < buttons.length; i++) {
+                        if (buttons.eq(i).html() != pageIndex) {
+                            buttons.eq(i).removeClass("active");
+                        } else {
+                            buttons.eq(i).addClass("active");
+                        }
+                    }
+                    this.pageCurrent = pageIndex;
+                    //计算分页按钮数据
+                    if (this.pageCount > this.showPages) {
+                        if (pageIndex <= (this.showPages - 1) / 2) {
+                            this.showPagesStart = 1;
+                            this.showPageEnd = this.showPages - 1;
+                            console.log("showPage1")
+                        }else if (pageIndex >= this.pageCount - (this.showPages - 3) / 2) {
+                            this.showPagesStart = this.pageCount - this.showPages + 2;
+                            this.showPageEnd = this.pageCount;
+                            console.log("showPage2")
+                        }else {
+                            console.log("showPage3")
+                            this.showPagesStart = pageIndex - (this.showPages - 3) / 2;
+                            this.showPageEnd = pageIndex + (this.showPages - 3) / 2;
+                        }
+                    }
+                    console.log("showPagesStart:" + this.showPagesStart + ",showPageEnd:" + this.showPageEnd + ",pageIndex:" + pageIndex);
+                }
+            }
+        }
+    });
+    //vue.$watch("arrayData", function (value) {});
+    vue.showPage(vue.pageCurrent, null, true);
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="97fcab8b-1bdd-4a25-b562-841cf0123952" name="默认更改列表" comment="">
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/baidu/bce/web/service/impl/TelemetryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/baidu/bce/web/service/impl/TelemetryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/vue.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="userSettingsFile" value="$USER_HOME$/apache-maven-3.6.3/conf/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1eAufGv0GXJJYzTBrS7sbuVYvkR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalDependencies" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.CheckPicturesApplication">
+    <configuration name="CheckPicturesApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.baidu.bce.web.CheckPicturesApplication" />
+      <module name="check-picture" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.baidu.bce.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Constant" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.baidu.bce.web.utils.Constant" />
+      <module name="check-picture" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.baidu.bce.web.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.CheckPicturesApplication" />
+      <item itemvalue="Application.Constant" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Constant" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="97fcab8b-1bdd-4a25-b562-841cf0123952" name="默认更改列表" comment="" />
+      <created>1593776819625</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1593776819625</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="103" y="30" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594351860555">
+      <screen x="0" y="23" width="1280" height="691" />
+    </state>
+    <state x="103" y="30" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1280.691@0.23.1280.691" timestamp="1594351860555" />
+    <state x="376" y="159" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1594296244635">
+      <screen x="0" y="23" width="1280" height="691" />
+    </state>
+    <state x="376" y="159" key="#com.intellij.ide.util.TreeClassChooserDialog/0.23.1280.691@0.23.1280.691" timestamp="1594296244635" />
+    <state width="1240" height="166" key="GridCell.Tab.0.bottom" timestamp="1594381298430">
+      <screen x="0" y="23" width="1280" height="691" />
+    </state>
+    <state width="1240" height="166" key="GridCell.Tab.0.bottom/0.23.1280.691@0.23.1280.691" timestamp="1594381298430" />
+    <state width="1150" height="198" key="GridCell.Tab.0.bottom/0.23.1280.692@0.23.1280.692" timestamp="1594373878975" />
+    <state width="1150" height="90" key="GridCell.Tab.0.bottom/0.23.1280.696@0.23.1280.696" timestamp="1594374958138" />
+    <state width="1150" height="62" key="GridCell.Tab.0.bottom/0.23.1280.700@0.23.1280.700" timestamp="1594375188457" />
+    <state width="1240" height="166" key="GridCell.Tab.0.center" timestamp="1594381298430">
+      <screen x="0" y="23" width="1280" height="691" />
+    </state>
+    <state width="1240" height="166" key="GridCell.Tab.0.center/0.23.1280.691@0.23.1280.691" timestamp="1594381298430" />
+    <state width="1150" height="198" key="GridCell.Tab.0.center/0.23.1280.692@0.23.1280.692" timestamp="1594373878974" />
+    <state width="1150" height="90" key="GridCell.Tab.0.center/0.23.1280.696@0.23.1280.696" timestamp="1594374958138" />
+    <state width="1150" height="62" key="GridCell.Tab.0.center/0.23.1280.700@0.23.1280.700" timestamp="1594375188456" />
+    <state width="1240" height="166" key="GridCell.Tab.0.left" timestamp="1594381298429">
+      <screen x="0" y="23" width="1280" height="691" />
+    </state>
+    <state width="1240" height="166" key="GridCell.Tab.0.left/0.23.1280.691@0.23.1280.691" timestamp="1594381298429" />
+    <state width="1150" height="198" key="GridCell.Tab.0.left/0.23.1280.692@0.23.1280.692" timestamp="1594373878973" />
+    <state width="1150" height="90" key="GridCell.Tab.0.left/0.23.1280.696@0.23.1280.696" timestamp="1594374958137" />
+    <state width="1150" height="62" key="GridCell.Tab.0.left/0.23.1280.700@0.23.1280.700" timestamp="1594375188456" />
+    <state width="1240" height="166" key="GridCell.Tab.0.right" timestamp="1594381298430">
+      <screen x="0" y="23" width="1280" height="691" />
+    </state>
+    <state width="1240" height="166" key="GridCell.Tab.0.right/0.23.1280.691@0.23.1280.691" timestamp="1594381298430" />
+    <state width="1150" height="198" key="GridCell.Tab.0.right/0.23.1280.692@0.23.1280.692" timestamp="1594373878974" />
+    <state width="1150" height="90" key="GridCell.Tab.0.right/0.23.1280.696@0.23.1280.696" timestamp="1594374958138" />
+    <state width="1150" height="62" key="GridCell.Tab.0.right/0.23.1280.700@0.23.1280.700" timestamp="1594375188456" />
+    <state x="295" y="38" width="670" height="676" key="search.everywhere.popup" timestamp="1594351247849">
+      <screen x="0" y="23" width="1280" height="691" />
+    </state>
+    <state x="295" y="38" width="670" height="676" key="search.everywhere.popup/0.23.1280.691@0.23.1280.691" timestamp="1594351247849" />
+  </component>
+</project>
